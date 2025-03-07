@@ -1,32 +1,41 @@
 <?php
-class Person {
 
-    private $p_id;
-    private $name;
-    private $password;
+require_once "./constants.php";
+require_once "../utilities/packages/Db.php";
 
-    function __contruct($p_id, $name, $password) {
+class Player {
+
+    CONST TABLENAME = 'Player';
+
+    private string $p_id;
+    private string $name;
+    private string $password;
+    private DB $db;
+
+    function __contruct(string $p_id, string $name, string $password) {
 
         $this->p_id = $p_id;
         $this->name = $name;
         $this->password = $password;
+        $this->db = new DB();
+        return;
     }
 
     function __destruct() {
         
-        echo "User $this->p_id has been deleted";
+        echo Config::values['destructor_message'];
     }
 
     // Getters
-    function getName() {
+    public function getName() {
 
         return $this->name;
     }
     
     // Setters
-    function setName($newValue) {
+    public function update(array $valuesToUpdate) {
 
-        $this->name = $newValue;
-        echo "Play name set successfully !";
+        return $this->db->update(tableName:self::TABLENAME, valuesToUpdate:$valuesToUpdate);
     }
+
 }

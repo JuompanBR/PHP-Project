@@ -5,6 +5,7 @@
 - Object Oriented Programming
 - Form Submission
 - Session Management
+- Dockerize and share projects
 - Database Querying
 
 ## How to use

@@ -12,13 +12,13 @@ class Db
     const USERNAME = '';
     const PASSWORD = '';
 
-    private $pdo = NULL;
+    private ?PDO $pdo = NULL;
 
     function __construct($dbname = self::DBNAME)
     {
 
         // Define the data source name
-        static $dsn = "msql:host=" . self::HOST . ";dname=" . $dbname . ";charset=" . self::CHARSET;
+        $dsn = "msql:host=" . self::HOST . ";dname=" . $dbname . ";charset=" . self::CHARSET;
 
         // Options for the pdo object
         $options = [
@@ -88,7 +88,7 @@ class Db
 
     public function update(
         string $tableName,
-        string $criteria,
+        string $criteria = '==',
         array $valuesToUpdate
     ) {
 
