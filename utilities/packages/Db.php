@@ -12,13 +12,21 @@ class Db
     const USERNAME = '';
     const PASSWORD = '';
 
+<<<<<<< HEAD
     private ?PDO $pdo = NULL;
+=======
+    private $pdo = NULL;
+>>>>>>> 8c9f4ce (Organized folder structure and Added the DB class)
 
     function __construct($dbname = self::DBNAME)
     {
 
         // Define the data source name
+<<<<<<< HEAD
         $dsn = "msql:host=" . self::HOST . ";dname=" . $dbname . ";charset=" . self::CHARSET;
+=======
+        static $dsn = "msql:host=" . self::HOST . ";dname=" . $dbname . ";charset=" . self::CHARSET;
+>>>>>>> 8c9f4ce (Organized folder structure and Added the DB class)
 
         // Options for the pdo object
         $options = [
